@@ -1,0 +1,25 @@
+.nav-bar {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    background: var(--color-surface);
+    /* border-bottom: 1.5px solid var(--color-border); */
+    border-bottom: 1px solid transparent;
+    position: sticky;
+    top: 0;
+    padding: 16px 32px;
+    gap: 20px;
+    z-index: 999;
+}
+
+.nav-bar a {
+    cursor: pointer;
+    font-size: 13.5px;
+    align-items: center;
+    gap: 3px;
+    font-weight: 600;
+}
+
+a.active {
+    color: oklch(56% 0.19 254);
+}

@@ -1,0 +1,253 @@
+@import "tailwindcss";
+
+/* ============================================================
+   ShopEase — Design Tokens & Reference Styles
+   Extracted from ShopEase.dc.html / ProductCard.dc.html
+   NOTE: the live components use inline styles (required by the
+   DC runtime for streaming). This file is a reference/spec sheet
+   for engineering handoff — mirror these values in your app's
+   actual stylesheet or CSS-in-JS theme.
+   ============================================================ */
+
+:root {
+  /* ---------- Color: Brand / Accent ---------- */
+  --color-accent: oklch(56% 0.19 254);
+  /* primary blue — buttons, links, active states */
+  --color-accent-tint: oklch(93% 0.03 254);
+  /* light blue — badges, selected bg, icon circles */
+  --color-accent-hover: oklch(50% 0.19 254);
+  /* darker blue for hover, derive or hardcode */
+
+  /* ---------- Color: Semantic ---------- */
+  --color-success: oklch(45% 0.12 150);
+  /* free shipping, in-stock, order confirmed */
+  --color-sale: oklch(55% 0.16 30);
+  /* sale badges, remove/destructive text */
+  --color-warning-kicker: oklch(62% 0.16 55);
+  /* "Summer Sale" hero kicker (orange) */
+  --color-rating-star: oklch(65% 0.15 75);
+  /* star rating fill */
+
+  /* ---------- Color: Neutrals (ink scale) ---------- */
+  --color-ink-900: oklch(19% 0.02 70);
+  /* primary text / headings */
+  --color-ink-600: oklch(30% 0.02 70);
+  /* nav text, body emphasis */
+  --color-ink-500: oklch(35% 0.02 70);
+  --color-ink-400: oklch(46% 0.02 70);
+  /* secondary text, meta, captions */
+  --color-ink-300: oklch(52% 0.02 70);
+  --color-border: oklch(82% 0.012 70);
+  /* dividers, card borders, input borders */
+  --color-border-light: oklch(89% 0.012 70);
+  /* lighter divider variant used on inputs */
+  --color-surface: #ffffff;
+  /* all section backgrounds are white */
+
+  /* ---------- Color: Category hues (for tiles/badges/product imagery) ---------- */
+  --hue-electronics: 260;
+  --hue-fashion: 25;
+  --hue-home-kitchen: 95;
+  --hue-beauty: 340;
+  --hue-bags-accessories: 60;
+  --hue-footwear: 155;
+  --hue-sports-outdoors: 200;
+  /* usage pattern: oklch(93% 0.03 <hue>) for tile bg, oklch(40-45% 0.1 <hue>) for icon/text */
+
+  /* ---------- Typography ---------- */
+  --font-body: 'Work Sans', sans-serif;
+  /* all UI text: nav, headings, prices, body */
+  --font-mono: 'Space Mono', monospace;
+  /* placeholder-image captions only */
+
+  --fs-display: 44px;
+  /* hero headline */
+  --fs-h1: 30px;
+  /* product title, category title, page titles (Checkout, Cart) */
+  --fs-h2: 28px;
+  /* Cart/Checkout page heading */
+  --fs-h3: 26px;
+  /* section headings (Shop by Category) */
+  --fs-h4: 18px;
+  /* card/summary panel headings */
+  --fs-body-lg: 15px;
+  --fs-body: 13.5px;
+  /* default UI text size */
+  --fs-body-sm: 13px;
+  --fs-caption: 12.5px;
+  --fs-micro: 11.5px;
+  /* uppercase eyebrow labels */
+  --fs-tiny: 10.5px;
+  /* monospace placeholder captions */
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  --tracking-eyebrow: 0.04em to 0.14em;
+  /* uppercase kickers/badges use letter-spacing in this range */
+
+  /* ---------- Spacing scale ---------- */
+  --space-1: 4px;
+  --space-2: 6px;
+  --space-3: 8px;
+  --space-4: 10px;
+  --space-5: 12px;
+  --space-6: 14px;
+  --space-7: 16px;
+  --space-8: 20px;
+  --space-9: 24px;
+  --space-10: 32px;
+  --space-11: 40px;
+  --space-12: 56px;
+  --space-13: 70px;
+
+  /* ---------- Radius ---------- */
+  --radius-sm: 3px;
+  /* small badges */
+  --radius-md: 4px;
+  /* buttons, inputs */
+  --radius-lg: 5px;
+  /* buttons (primary CTAs), qty steppers */
+  --radius-xl: 6px;
+  /* product card, image blocks */
+  --radius-2xl: 8px;
+  /* panels, order summary cards */
+  --radius-pill: 50%;
+  /* avatar, category icon circle, color swatch */
+
+  /* ---------- Shadow ---------- */
+  --shadow-card-hover: 0 12px 28px -10px oklch(20% 0.02 70 / 0.25);
+  --shadow-image-panel: 0 1px 3px oklch(19% 0.02 70 / 0.08);
+
+  /* ---------- Layout ---------- */
+  --content-max-width: 1400px;
+  /* home/category page container */
+  --content-max-width-narrow: 1300px;
+  /* product/cart/checkout container */
+  --content-max-width-auth: 440px;
+  /* sign-in card container */
+}
+
+*{
+  font-family: "Work Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root{
+  max-width: 1400px;
+  margin: 0 auto;
+}
+/* ============================================================
+   Component reference classes (map 1:1 to inline styles used
+   in the DC — provided for teams that need class-based CSS)
+   ============================================================ */
+
+/* --- Buttons --- */
+.btn-primary {
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-lg);
+  font-weight: var(--fw-bold);
+  font-family: var(--font-body);
+  cursor: pointer;
+  padding: 14px 28px;
+  /* hero/CTA size; 11-13px vertical for form buttons */
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1.4px solid var(--color-accent);
+  color: var(--color-accent);
+  border-radius: var(--radius-md);
+  font-weight: var(--fw-semibold);
+  font-family: var(--font-body);
+}
+
+.btn-secondary:hover {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+/* --- Product Card --- */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  background: oklch(99% 0.005 75);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+
+.product-card:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-2px);
+}
+
+.product-card__badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 3px;
+  /* background varies: Sale=--color-sale, Best Seller=--color-accent, New=--color-success */
+}
+
+/* --- Category tile --- */
+.category-tile__icon {
+  width: 66px;
+  height: 66px;
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background: oklch(93% 0.03 <hue>); color: oklch(40-45% 0.1 <hue>); */
+}
+
+
+/* --- Cards / panels (order summary, checkout, sign-in) --- */
+.panel {
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  padding: 24px;
+}
+
+/* --- Form fields --- */
+.field-input {
+  width: 100%;
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  padding: 11px 12px;
+  font-size: var(--fs-body);
+  font-family: var(--font-body);
+}
+
+/* ============================================================
+   Icon system
+   All icons are inline SVG, 24x24 viewBox, stroke-based,
+   stroke-width 1.7–2.2, round line caps/joins, no fill.
+   Equivalent open-source set: Lucide (or Feather, its predecessor).
+   Inventory used: search, cart/bag, user, chevron-down/right,
+   truck, rotate-ccw (returns), shield, headset, star (filled),
+   check, trash-2, credit-card, plus/minus, x-circle style category glyphs.
+   ============================================================ */
+
+.page-holder {
+  display: flex;
+  padding: 0 32px;
+}
+
+.inner-page-holder {
+  display: flex;
+}

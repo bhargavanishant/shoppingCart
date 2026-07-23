@@ -1,0 +1,18 @@
+.tabs-header {
+    display: flex;
+    gap: 22px;
+    margin-bottom: 26px;
+    border-bottom: 1px solid oklch(89% 0.012 70);
+}
+
+.tabs-header button{
+    padding-bottom: 12px;
+    font-size: 15px;
+    cursor: pointer;
+    font-family: 'Work Sans',sans-serif;
+}
+
+.tabs-header button.active{
+    font-weight: 700;
+    border-bottom: 2px solid oklch(56% 0.19 254);
+}

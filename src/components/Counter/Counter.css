@@ -1,0 +1,20 @@
+.counter-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid oklch(89% 0.012 70);
+    border-radius: 5px;
+}
+
+.counter {
+    border: none;
+    background: none;
+    width: 28px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.counter-count {
+    width: 28px;
+    text-align: center;
+    font-size: 13px;
+}
