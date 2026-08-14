@@ -16,12 +16,21 @@ export default function Categories() {
     const dispatch = useDispatch();
 
     const { data: categoryList = [], isLoading: isCategoriesLoading } = useGetCategoriesQuery();
-    const { data, isLoading: isProductLoading, isError } = useGetProductsByCategoryQuery(
+    const { data, isLoading: isProductLoading } = useGetProductsByCategoryQuery(
         selectedCategory!,
         { skip: !selectedCategory }
     );
     const productList = data?.products ?? [];
     const selectedProductCount = data?.total ?? 0;
+
+    // If we land on /categories with no category chosen (e.g. via Navbar),
+    // default to the first category. Deep links from Home that already
+    // specify a category are left untouched.
+    useEffect(() => {
+        if (!selectedCategory && categoryList.length > 0) {
+            navigate(`/categories/${categoryList[0]}`, { replace: true });
+        }
+    }, [selectedCategory, categoryList, navigate]);
 
     // Publish the active category + breadcrumb trail to the shared ui slice
     // so Header/Navbar/Breadcrumbs (and any future consumer) stay in sync.
@@ -55,7 +64,7 @@ export default function Categories() {
                             <li
                                 id={category}
                                 key={index}
-                                className={`category-item${category === selectedCategory ? ' active' : ''}`}
+                                className={`category-item ${category === selectedCategory ? 'active' : ''}`}
                                 onClick={() => selectCategory(category)}
                             >
                                 {category}

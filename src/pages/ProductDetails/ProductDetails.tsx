@@ -115,7 +115,7 @@ export default function ProductDetails() {
             <section className="product-page-container">
                 <div className="product-images-container">
                     {product.images.map((img: string, index: number) => (
-                        <img key={index} onClick={() => changeProductImage(img)} className="product-image-holder" src={img} />
+                        <img key={index} onClick={() => changeProductImage(img)} className={`product-image-holder ${selectedProductImage === img ? 'active' : ''}`} src={img} />
                     ))}
                 </div>
                 <div className='product-primary-image'>

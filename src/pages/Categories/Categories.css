@@ -30,6 +30,13 @@
     padding: 9px 10px;
 }
 
+.category-item.active {
+    padding: 9px 10px;
+    color: oklch(56% 0.19 254);
+    background: oklch(95% 0.025 254);
+    font-weight: 600;
+}
+
 .product-category-row {
     display: flex;
     align-items: center;

@@ -21,6 +21,10 @@
     overflow: hidden;
 }
 
+.product-image-holder.active{
+    border: 2px solid oklch(41.509% 0.14142 255.949);
+}
+
 .product-primary-image {
     aspect-ratio: 1/1;
     border-radius: 8px;
