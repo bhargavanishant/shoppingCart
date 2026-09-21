@@ -11,6 +11,7 @@ export interface HeaderConfig {
     showNavbar: boolean;
     showBreadcrumbs: boolean;
     showCart: boolean;
+    showLogin: boolean;
 }
 
 interface UiState {
@@ -24,7 +25,8 @@ const defaultHeaderConfig: HeaderConfig = {
     showSearch: true,
     showNavbar: true,
     showBreadcrumbs: true,
-    showCart: true
+    showCart: true,
+    showLogin: true
 };
 
 const initialState: UiState = {

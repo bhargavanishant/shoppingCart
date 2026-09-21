@@ -4,7 +4,7 @@ import './Cart.css';
 import Counter from '../../components/Counter/Counter';
 import type { RootState } from '../../app/store';
 import { clearCart, increment, decrement, removeFromCart } from '../../features/cart/cartSlice';
-import { getShowcasedPrice } from '../../utils/priceCalculation';
+import { getShowcasedPrice, getItemsTotalCost, getTaxLevied, getTotalCartCost } from '../../utils/priceCalculation';
 import Header from '../../components/Header/Header';
 import { useHeaderConfig } from '../../features/ui/useHeaderConfig';
 
@@ -28,26 +28,11 @@ export default function Cart() {
         0
     );
 
-    const itemsTotalCost = Number(cartItems
-        .reduce((sum, item) => {
-            const shownPrice =
-                item.price *
-                (1 - item.discountPercentage / 100);
+    const itemsTotalCost = getItemsTotalCost(cartItems);
+    const taxLevied = getTaxLevied(itemsTotalCost);
+    const totalCartCost = getTotalCartCost(itemsTotalCost, taxLevied);
 
-            return sum + shownPrice * item.quantity;
-        }, 0)
-        .toFixed(2)
-    );
-
-    const taxLevied = function () {
-        return parseFloat((itemsTotalCost * 0.08).toFixed(2));
-    }
-
-    const totalCartCost = function () {
-        return parseFloat((itemsTotalCost + taxLevied()).toFixed(2));
-    }
-
-    const clearCartItems = function () {
+const clearCartItems = function () {
         dispatch(clearCart());
     }
 
@@ -62,6 +47,8 @@ export default function Cart() {
             dispatch(decrement(productId));
         }
     };
+
+    const proceedCheckout = () => navigate('/checkout');
 
     return (
         <>
@@ -135,13 +122,13 @@ export default function Cart() {
                             </div>
                             <div className='order-subtotal tax-box'>
                                 <div>Tax</div>
-                                <div className='cost-label'>${taxLevied()}</div>
+                                <div className='cost-label'>${taxLevied}</div>
                             </div>
                             <div className='total-order-value'>
                                 <div className='total-label'>Total</div>
-                                <div className='total-label'>${totalCartCost()}</div>
+                                <div className='total-label'>${totalCartCost}</div>
                             </div>
-                            <button className='proceed-to-checkout'>Proceed to Checkout</button>
+                            <button className='proceed-to-checkout' onClick={proceedCheckout}>Proceed to Checkout</button>
                             <div className='secure-checkout'>
                                 <img />
                                 <div>Secure Checkout</div>
@@ -151,6 +138,5 @@ export default function Cart() {
                 )}
             </section>
         </>
-
     )
 }

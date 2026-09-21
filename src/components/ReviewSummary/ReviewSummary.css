@@ -1,0 +1,36 @@
+.review-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 640px;
+}
+
+.review-summary-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 24px;
+    border: 1px solid oklch(89% 0.012 70);
+    border-radius: 8px;
+}
+
+.review-summary-title {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.review-summary-line {
+    font-size: 14.5px;
+    color: oklch(46% 0.02 70);
+}
+
+.review-summary-submit {
+    background: oklch(45% 0.12 150);
+    color: white;
+    border: none;
+    padding: 16px;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 6px;
+    cursor: pointer;
+}

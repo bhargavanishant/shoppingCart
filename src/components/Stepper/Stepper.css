@@ -1,0 +1,63 @@
+.stepper {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.stepper-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: oklch(46% 0.02 70);
+}
+
+.stepper-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: oklch(89% 0.012 70);
+    color: oklch(46% 0.02 70);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.stepper-label {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.stepper-item.active {
+    color: oklch(19% 0.02 70);
+}
+
+.stepper-item.active .stepper-circle {
+    background: oklch(56% 0.19 254);
+    color: white;
+}
+
+.stepper-item.complete {
+    color: oklch(19% 0.02 70);
+}
+
+.stepper-item.complete .stepper-circle {
+    background: oklch(56% 0.19 254);
+    color: white;
+}
+
+.stepper-item.clickable {
+    cursor: pointer;
+}
+
+.stepper-item.clickable:hover .stepper-label {
+    text-decoration: underline;
+}
+
+.stepper-item.clickable:focus-visible {
+    outline: 2px solid oklch(56% 0.19 254);
+    outline-offset: 4px;
+    border-radius: 4px;
+}

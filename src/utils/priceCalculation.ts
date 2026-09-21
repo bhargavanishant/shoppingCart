@@ -12,3 +12,19 @@ export const getSavings = (
     showcasedPrice: number
 ): number =>
     roundToTwoDecimals(originalPrice - showcasedPrice);
+
+export const getItemsTotalCost = (
+    cartItems: { price: number; discountPercentage: number; quantity: number }[]
+): number =>
+    roundToTwoDecimals(
+        cartItems.reduce((sum, item) => {
+            const shownPrice = getShowcasedPrice(item.price, item.discountPercentage);
+            return sum + shownPrice * item.quantity;
+        }, 0)
+    );
+
+export const getTaxLevied = (itemsTotalCost: number): number =>
+    roundToTwoDecimals(itemsTotalCost * 0.08);
+
+export const getTotalCartCost = (itemsTotalCost: number, taxLevied: number): number =>
+    roundToTwoDecimals(itemsTotalCost + taxLevied);

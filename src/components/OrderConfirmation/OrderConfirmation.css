@@ -1,0 +1,89 @@
+.order-confirmation {
+    max-width: 520px;
+    margin: 40px auto 0;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.order-confirmation-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: oklch(45% 0.12 150);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+}
+
+.order-confirmation-title {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+.order-confirmation-subtitle {
+    font-size: 15px;
+    color: oklch(46% 0.02 70);
+    line-height: 1.5;
+    margin-bottom: 28px;
+}
+
+.order-confirmation-meta {
+    display: flex;
+    justify-content: center;
+    gap: 56px;
+    margin-bottom: 32px;
+}
+
+.order-confirmation-meta-label {
+    font-size: 14px;
+    color: oklch(46% 0.02 70);
+    margin-bottom: 6px;
+}
+
+.order-confirmation-meta-value {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.order-confirmation-continue {
+    background: oklch(56% 0.19 254);
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 40px;
+}
+
+.order-confirmation-divider {
+    border-top: 1px solid oklch(89% 0.012 70);
+    margin-bottom: 24px;
+}
+
+.order-confirmation-help {
+    text-align: left;
+}
+
+.order-confirmation-help-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.order-confirmation-help-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: oklch(46% 0.02 70);
+    text-decoration: none;
+}
+
+.order-confirmation-help-link:hover {
+    text-decoration: underline;
+}

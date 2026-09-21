@@ -19,6 +19,7 @@ export default function Header() {
         showNavbar,
         showBreadcrumbs,
         showCart,
+        showLogin
     } = headerConfig;
 
     const totalItems = cartItems.reduce(
@@ -60,11 +61,13 @@ export default function Header() {
                         </button>
                     </div>
                 )}
-                <div className="login">
+                {showLogin && (
+                    <div className="login">
                     <button onClick={headToLogin}>
                         <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="3.6"></circle><path d="M4.5 20c1.4-4 4-6 7.5-6s6.1 2 7.5 6"></path></svg>
                     </button>
                 </div>
+                )}
             </header>
             {showNavbar && <Navbar />}
             {showBreadcrumbs && <Breadcrumbs />}

@@ -13,6 +13,17 @@
     margin-bottom: 14px;
 }
 
+.loading-categories{
+    height: 300px;
+    margin-bottom: 20px;
+}
+
+.category-list {
+    height: 300px;
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
 .category-list li {
     font-size: 13.5px;
     border-radius: 4px;

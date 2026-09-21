@@ -1,0 +1,120 @@
+.config-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 640px;
+}
+
+.config-form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.config-form-row .config-form-field {
+    flex: 1;
+    min-width: 0;
+}
+
+.config-form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.config-form-field label,
+.config-form-field-label {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.config-form-radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.config-form-radio-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 18px;
+    border: 1px solid oklch(89% 0.012 70);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.config-form-radio-card.selected {
+    border-color: oklch(56% 0.19 254);
+    border-width: 2px;
+    padding: 15px 17px;
+}
+
+.config-form-radio-input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.config-form-radio-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid oklch(75% 0.012 70);
+    flex-shrink: 0;
+    position: relative;
+}
+
+.config-form-radio-card.selected .config-form-radio-dot {
+    border-color: oklch(56% 0.19 254);
+}
+
+.config-form-radio-card.selected .config-form-radio-dot::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border-radius: 50%;
+    background: oklch(56% 0.19 254);
+}
+
+.config-form-input {
+    font-family: inherit;
+    font-size: 14.5px;
+    padding: 12px 14px;
+    border: 1px solid oklch(89% 0.012 70);
+    border-radius: 6px;
+    outline: none;
+}
+
+.config-form-input:focus {
+    border-color: oklch(56% 0.19 254);
+}
+
+.config-form-input.has-error {
+    border-color: oklch(55% 0.16 30);
+}
+
+.config-form-error {
+    font-size: 12.5px;
+    color: oklch(55% 0.16 30);
+}
+
+.config-form-submit {
+    background: oklch(56% 0.19 254);
+    color: white;
+    border: none;
+    padding: 14px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+@media (max-width: 520px) {
+    .config-form-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+}

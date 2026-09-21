@@ -55,9 +55,10 @@ export default function Categories() {
         <Header />
         <section className="categories-page">
             <aside>
+                <>
                 <h2 className='category-header'>Categories</h2>
                 {isCategoriesLoading ? (
-                    <p>Loading Categories...</p>
+                    <p className='loading-categories'>Loading Categories...</p>
                 ) : (
                     <ul className="category-list">
                         {categoryList.map((category, index: number) => (
@@ -72,6 +73,10 @@ export default function Categories() {
                         ))}
                     </ul>
                 )}
+                </>
+                <>
+                <h2 className='category-header'>Price</h2>
+                </>
             </aside>
             <aside>
                 <div className="product-category-row">

@@ -251,3 +251,29 @@
 .inner-page-holder {
   display: flex;
 }
+
+.order-summary {
+    width: 340px;
+    background: #ffffff;
+    border: 1.5px solid oklch(82% 0.012 70);
+    border-radius: 8px;
+    padding: 24px;
+}
+
+.order-summary-title {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 18px;
+}
+
+.order-subtotal {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13.5px;
+    margin-bottom: 10px;
+}
+
+.order-total-title {
+    color: oklch(46% 0.02 70);
+}
